@@ -1,79 +1,78 @@
-# Reasoning
+# Design Reasoning
 
-## Reading the brief for the actual spec
+## Why a two-tier sort, not a single weighted score
 
-The problem statement is deliberately just a story about Priya, not a spec — the instructions say
-as much ("the way Priya talks about her queue tells you what it needs"). So the first job was to
-extract requirements from her specific complaints:
+The brief is explicit: "always pick the most pressing ticket next,
+with anything past its promised time jumping to the front." That's
+not a single continuous score (like "priority weight minus hours
+remaining") — it's a hard rule: breach status beats priority, always.
+A `normal` ticket that's overdue must outrank an `urgent` ticket that
+still has time, no matter how much time the urgent ticket has left.
 
-| Priya says...                                                              | Requirement                                                    |
-|-------------------------------------------------------------------------------|------------------------------------------------------------------|
-| "always pick the most pressing ticket next"                                   | The list has one canonical order; there's no manual re-sorting.  |
-| "urgent within 2 hours, normal within a day"                                  | Two priority tiers, each with an SLA / response-time promise.    |
-| "anything past its promised time jumping to the front"                        | Overdue status **overrides** priority in the ordering.           |
-| "what's overdue?"                                                             | A filter for tickets currently past SLA.                         |
-| "what's assigned to me?"                                                      | Tickets have an assignee; filter by assignee.                    |
-| "looking up a specific customer's ticket by name"                             | Search by customer name.                                         |
-| "the list is huge, so she pages through it"                                   | Pagination, not an infinite unpaginated list.                    |
-| "two-person IT helpdesk"                                                      | At least two agents to assign between (kept it open-ended: any agent name works, not hardcoded to exactly two). |
-| "Build it for any helpdesk, not just Priya's"                                 | Don't hardcode her name/company; keep the domain generic (customers, agents, tickets). |
+A single weighted formula can accidentally let a high-priority,
+barely-not-overdue ticket outscore a low-priority, badly-overdue one,
+depending on how the weights are tuned. A strict two-tier comparator
+avoids that: overdue status is checked first and decides the
+comparison outright; priority and due-date only matter for breaking
+ties *within* a tier. That directly encodes the stated rule instead
+of approximating it.
 
-The parenthetical hint — "get tickets and the queue order right first, then filters and
-assignment" — set the build order and where to spend the most care: the ordering rule is graded as
-the core of the exercise, so it needed to be correct, explicit, and testable, not just "roughly
-right in the UI."
+## Why "most overdue first" within the overdue tier
 
-## The ordering rule, precisely
+Once a ticket is late, priority stops being the most useful signal —
+duration of breach is. A ticket that breached its SLA 10 hours ago is
+more urgent to clear than one that breached it 10 minutes ago,
+independent of whether either was originally `normal` or `urgent`.
+Sorting the overdue tier by earliest due date (i.e., longest overdue
+first) reflects that directly.
 
-The phrase "anything past its promised time jumping to the front" is unambiguous once you take it
-literally: overdue-ness is a **higher-order sort key than priority**. A `normal` ticket that
-breached its 24h SLA outranks a fresh `urgent` ticket that still has 90 minutes left. This is a
-two-tier comparator:
+## Why priority, then soonest-due, in the not-yet-overdue tier
 
-1. **Tier 1 — overdue vs. not.** Overdue tickets always sort before non-overdue tickets.
-2. **Tier 2a — among overdue tickets:** most overdue first (earliest due-time first), since the
-   ticket that's been broken the longest is presumably the angriest customer / biggest fire.
-2. **Tier 2b — among non-overdue tickets:** urgent before normal, then soonest-due first — this is
-   the "who's about to breach next" ordering, so Priya is naturally warned before something tips
-   into tier 1.
+Among tickets that are still on time, priority is the only signal
+the helpdesk agent has expressed a preference about explicitly
+("urgent" vs "normal" tickets). Soonest-due-date is the tiebreaker
+within a priority level, so two `normal` tickets are ordered by
+which one is closer to breaching — giving the agent a natural
+early-warning ordering before anything actually goes overdue.
 
-"Due time" itself is derived, not stored: `createdAt + SLA hours for that priority`. Overdue-ness
-is computed live from `Date.now()` rather than cached, because a ticket's overdue status changes
-purely with the passage of time — storing it would mean it silently goes stale.
+## Why priority needs a third level for escalation
 
-Closed tickets are excluded from "overdue" entirely (a resolved ticket isn't pressing, no matter
-how late it was resolved) and excluded from the default queue view — but they're not deleted, so
-history and the "closed" filter both still work.
+The original schema only had `urgent`/`normal`. The escalation
+requirement ("normal → high → urgent") needs an intermediate step, so
+a `high` tier was added with its own SLA (8 hours — chosen as a
+rough midpoint between urgent's 2h and normal's 24h; this number
+isn't specified in the brief and can be adjusted if a specific value
+is expected). Without a middle tier, "escalate one level" for a
+`normal` ticket would have nowhere to go except straight to
+`urgent`, which contradicts "at most one level per run."
 
-This logic is isolated in one pure, dependency-free file (`server/queue.js`) with no framework code
-mixed in, specifically so it could be unit tested in isolation and read on its own as "the rule."
-That felt more important than which web framework or database sat around it.
+## Why escalation checks the *current* SLA, not the original one
 
-## Why this tech stack
+Recomputing `isOverdue()` against whatever priority a ticket
+currently holds means a ticket that just got bumped from `normal` to
+`high` is re-evaluated against `high`'s tighter 8-hour SLA on the
+next sweep — not against `normal`'s original 24-hour window. That's
+intentional: if a ticket has been open long enough to breach even
+the tighter `high` SLA, it should be eligible to escalate again on
+the *next* run. This is also what keeps "one level per run" honest —
+a ticket can only move one step per sweep, but a badly overdue
+ticket will naturally climb through multiple sweeps rather than
+getting silently stuck at `high` forever.
 
-The instructions say any stack is fine, and grading online in a fresh Codespace, so I optimized
-for **zero friction to run**, not for showing off framework breadth:
+## Why the sweep is exposed both as a timer and a standalone script
 
-- **Express + a JSON file, not a database.** A real product would use Postgres/SQLite, but that's
-  setup overhead for a take-home reviewer with no payoff — the interesting logic (ordering,
-  filtering) is identical either way. The storage module (`server/store.js`) is a thin,
-  swappable layer for exactly this reason.
-- **Plain HTML/CSS/JS frontend, no build step.** No bundler, no framework version drift, no
-  `npm run build` step to forget. `npm install && npm start` is the entire setup.
-- **Node's built-in test runner** instead of Jest/Mocha, again to minimize dependencies while still
-  having real, runnable, CI-friendly tests for the one piece of logic that most needed to be
-  demonstrably correct.
+An "automated check" implies it shouldn't depend on a person
+remembering to click something. Running it on a `setInterval` while
+the server is up covers the common case. The standalone
+`scripts/escalate.js` entry point exists so the same logic can run
+independently of the server process — via cron, a scheduled CI job,
+or a manual invocation for testing — without needing the whole app
+running just to check for breaches.
 
-## What I deliberately left out
+## Why closed tickets are excluded from escalation and from the queue
 
-Per the brief's own priority order ("tickets and queue order right first, then filters and
-assignment"), I didn't spend time on:
-- Authentication / real user accounts (the "assigned to me" filter is a dropdown of agent names
-  rather than a login system).
-- Editing ticket text after creation from the UI (the API supports it; the UI doesn't expose it) —
-  it's not something Priya asked for.
-- Real-time push updates (the UI polls every 30s so overdue status/countdowns stay fresh, which is
-  proportionate to a 2-person helpdesk, not a chat app).
-
-These are called out again in the README's "known limitations" section rather than silently
-omitted.
+A closed ticket has no agreed response time left to breach in any
+meaningful sense — escalating its priority would just be noise. It's
+excluded from both the ordering (nothing pressing about a resolved
+ticket) and the escalation sweep, but stays fully queryable through
+filters/search for historical lookup.
