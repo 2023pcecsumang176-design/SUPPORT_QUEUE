@@ -1,0 +1,422 @@
+[
+  {
+    "id": "seed-0",
+    "customerName": "Rohan Mehta",
+    "subject": "Laptop won't boot before client demo",
+    "description": "Laptop won't boot before client demo — reported via helpdesk portal.",
+    "priority": "urgent",
+    "status": "closed",
+    "assignedTo": null,
+    "createdAt": "2026-09-16T08:49:58.546Z"
+  },
+  {
+    "id": "seed-1",
+    "customerName": "Sara Khan",
+    "subject": "Production VPN down for whole team",
+    "description": "Production VPN down for whole team — reported via helpdesk portal.",
+    "priority": "urgent",
+    "status": "open",
+    "assignedTo": "Alex",
+    "createdAt": "2026-09-16T08:19:58.546Z"
+  },
+  {
+    "id": "seed-2",
+    "customerName": "Liu Wei",
+    "subject": "Can't log into email",
+    "description": "Can't log into email — reported via helpdesk portal.",
+    "priority": "urgent",
+    "status": "open",
+    "assignedTo": "Priya",
+    "createdAt": "2026-09-16T07:25:58.546Z"
+  },
+  {
+    "id": "seed-3",
+    "customerName": "Amara Okafor",
+    "subject": "Requesting a second monitor",
+    "description": "Requesting a second monitor — reported via helpdesk portal.",
+    "priority": "normal",
+    "status": "open",
+    "assignedTo": null,
+    "createdAt": "2026-09-16T06:49:58.546Z"
+  },
+  {
+    "id": "seed-4",
+    "customerName": "Diego Alvarez",
+    "subject": "Software license renewal question",
+    "description": "Software license renewal question — reported via helpdesk portal.",
+    "priority": "normal",
+    "status": "open",
+    "assignedTo": "Priya",
+    "createdAt": "2026-09-16T05:19:58.546Z"
+  },
+  {
+    "id": "seed-5",
+    "customerName": "Emma Thompson",
+    "subject": "Printer on 3rd floor jammed",
+    "description": "Printer on 3rd floor jammed — reported via helpdesk portal.",
+    "priority": "normal",
+    "status": "open",
+    "assignedTo": "Alex",
+    "createdAt": "2026-09-16T01:19:58.546Z"
+  },
+  {
+    "id": "seed-6",
+    "customerName": "Kenji Sato",
+    "subject": "New hire laptop setup",
+    "description": "New hire laptop setup — reported via helpdesk portal.",
+    "priority": "normal",
+    "status": "open",
+    "assignedTo": null,
+    "createdAt": "2026-09-15T13:19:58.546Z"
+  },
+  {
+    "id": "seed-7",
+    "customerName": "Fatima Noor",
+    "subject": "Wifi dropping intermittently",
+    "description": "Wifi dropping intermittently — reported via helpdesk portal.",
+    "priority": "urgent",
+    "status": "open",
+    "assignedTo": "Alex",
+    "createdAt": "2026-09-15T07:19:58.546Z"
+  },
+  {
+    "id": "seed-8",
+    "customerName": "Carlos Rivas",
+    "subject": "Password reset request",
+    "description": "Password reset request — reported via helpdesk portal.",
+    "priority": "normal",
+    "status": "open",
+    "assignedTo": "Priya",
+    "createdAt": "2026-09-15T03:19:58.546Z"
+  },
+  {
+    "id": "seed-9",
+    "customerName": "Priya Nair",
+    "subject": "Payment terminal frozen, customers waiting",
+    "description": "Payment terminal frozen, customers waiting — reported via helpdesk portal.",
+    "priority": "urgent",
+    "status": "open",
+    "assignedTo": null,
+    "createdAt": "2026-09-14T09:19:58.546Z"
+  },
+  {
+    "id": "seed-10",
+    "customerName": "James O'Neill",
+    "subject": "Slack notifications not working",
+    "description": "Slack notifications not working — reported via helpdesk portal.",
+    "priority": "normal",
+    "status": "open",
+    "assignedTo": "Priya",
+    "createdAt": "2026-09-16T08:49:58.546Z"
+  },
+  {
+    "id": "seed-11",
+    "customerName": "Ana Petrova",
+    "subject": "Screen flickering on external display",
+    "description": "Screen flickering on external display — reported via helpdesk portal.",
+    "priority": "normal",
+    "status": "closed",
+    "assignedTo": "Alex",
+    "createdAt": "2026-09-16T08:19:58.546Z"
+  },
+  {
+    "id": "seed-12",
+    "customerName": "Tom Becker",
+    "subject": "Laptop won't boot before client demo",
+    "description": "Laptop won't boot before client demo — reported via helpdesk portal.",
+    "priority": "urgent",
+    "status": "open",
+    "assignedTo": null,
+    "createdAt": "2026-09-16T07:25:58.546Z"
+  },
+  {
+    "id": "seed-13",
+    "customerName": "Nia Williams",
+    "subject": "Production VPN down for whole team",
+    "description": "Production VPN down for whole team — reported via helpdesk portal.",
+    "priority": "urgent",
+    "status": "open",
+    "assignedTo": "Alex",
+    "createdAt": "2026-09-16T06:49:58.546Z"
+  },
+  {
+    "id": "seed-14",
+    "customerName": "Yusuf Demir",
+    "subject": "Can't log into email",
+    "description": "Can't log into email — reported via helpdesk portal.",
+    "priority": "urgent",
+    "status": "open",
+    "assignedTo": "Priya",
+    "createdAt": "2026-09-16T05:19:58.546Z"
+  },
+  {
+    "id": "seed-15",
+    "customerName": "Grace Park",
+    "subject": "Requesting a second monitor",
+    "description": "Requesting a second monitor — reported via helpdesk portal.",
+    "priority": "normal",
+    "status": "open",
+    "assignedTo": null,
+    "createdAt": "2026-09-16T01:19:58.546Z"
+  },
+  {
+    "id": "seed-16",
+    "customerName": "Ivan Petrov",
+    "subject": "Software license renewal question",
+    "description": "Software license renewal question — reported via helpdesk portal.",
+    "priority": "normal",
+    "status": "open",
+    "assignedTo": "Priya",
+    "createdAt": "2026-09-15T13:19:58.546Z"
+  },
+  {
+    "id": "seed-17",
+    "customerName": "Mei Lin",
+    "subject": "Printer on 3rd floor jammed",
+    "description": "Printer on 3rd floor jammed — reported via helpdesk portal.",
+    "priority": "normal",
+    "status": "open",
+    "assignedTo": "Alex",
+    "createdAt": "2026-09-15T07:19:58.546Z"
+  },
+  {
+    "id": "seed-18",
+    "customerName": "Oscar Dubois",
+    "subject": "New hire laptop setup",
+    "description": "New hire laptop setup — reported via helpdesk portal.",
+    "priority": "normal",
+    "status": "open",
+    "assignedTo": null,
+    "createdAt": "2026-09-15T03:19:58.546Z"
+  },
+  {
+    "id": "seed-19",
+    "customerName": "Leah Cohen",
+    "subject": "Wifi dropping intermittently",
+    "description": "Wifi dropping intermittently — reported via helpdesk portal.",
+    "priority": "urgent",
+    "status": "open",
+    "assignedTo": "Alex",
+    "createdAt": "2026-09-14T09:19:58.546Z"
+  },
+  {
+    "id": "seed-20",
+    "customerName": "Hana Suzuki",
+    "subject": "Password reset request",
+    "description": "Password reset request — reported via helpdesk portal.",
+    "priority": "normal",
+    "status": "open",
+    "assignedTo": "Priya",
+    "createdAt": "2026-09-16T08:49:58.546Z"
+  },
+  {
+    "id": "seed-21",
+    "customerName": "Omar Farouk",
+    "subject": "Payment terminal frozen, customers waiting",
+    "description": "Payment terminal frozen, customers waiting — reported via helpdesk portal.",
+    "priority": "urgent",
+    "status": "open",
+    "assignedTo": null,
+    "createdAt": "2026-09-16T08:19:58.546Z"
+  },
+  {
+    "id": "seed-22",
+    "customerName": "Chloe Martin",
+    "subject": "Slack notifications not working",
+    "description": "Slack notifications not working — reported via helpdesk portal.",
+    "priority": "normal",
+    "status": "closed",
+    "assignedTo": "Priya",
+    "createdAt": "2026-09-16T07:25:58.546Z"
+  },
+  {
+    "id": "seed-23",
+    "customerName": "Ben Turner",
+    "subject": "Screen flickering on external display",
+    "description": "Screen flickering on external display — reported via helpdesk portal.",
+    "priority": "normal",
+    "status": "open",
+    "assignedTo": "Alex",
+    "createdAt": "2026-09-16T06:49:58.546Z"
+  },
+  {
+    "id": "seed-24",
+    "customerName": "Zara Ahmed",
+    "subject": "Laptop won't boot before client demo",
+    "description": "Laptop won't boot before client demo — reported via helpdesk portal.",
+    "priority": "urgent",
+    "status": "open",
+    "assignedTo": null,
+    "createdAt": "2026-09-16T05:19:58.546Z"
+  },
+  {
+    "id": "seed-25",
+    "customerName": "Rohan Mehta",
+    "subject": "Production VPN down for whole team",
+    "description": "Production VPN down for whole team — reported via helpdesk portal.",
+    "priority": "urgent",
+    "status": "open",
+    "assignedTo": "Alex",
+    "createdAt": "2026-09-16T01:19:58.546Z"
+  },
+  {
+    "id": "seed-26",
+    "customerName": "Sara Khan",
+    "subject": "Can't log into email",
+    "description": "Can't log into email — reported via helpdesk portal.",
+    "priority": "urgent",
+    "status": "open",
+    "assignedTo": "Priya",
+    "createdAt": "2026-09-15T13:19:58.546Z"
+  },
+  {
+    "id": "seed-27",
+    "customerName": "Liu Wei",
+    "subject": "Requesting a second monitor",
+    "description": "Requesting a second monitor — reported via helpdesk portal.",
+    "priority": "normal",
+    "status": "open",
+    "assignedTo": null,
+    "createdAt": "2026-09-15T07:19:58.546Z"
+  },
+  {
+    "id": "seed-28",
+    "customerName": "Amara Okafor",
+    "subject": "Software license renewal question",
+    "description": "Software license renewal question — reported via helpdesk portal.",
+    "priority": "normal",
+    "status": "open",
+    "assignedTo": "Priya",
+    "createdAt": "2026-09-15T03:19:58.546Z"
+  },
+  {
+    "id": "seed-29",
+    "customerName": "Diego Alvarez",
+    "subject": "Printer on 3rd floor jammed",
+    "description": "Printer on 3rd floor jammed — reported via helpdesk portal.",
+    "priority": "normal",
+    "status": "open",
+    "assignedTo": "Alex",
+    "createdAt": "2026-09-14T09:19:58.546Z"
+  },
+  {
+    "id": "seed-30",
+    "customerName": "Emma Thompson",
+    "subject": "New hire laptop setup",
+    "description": "New hire laptop setup — reported via helpdesk portal.",
+    "priority": "normal",
+    "status": "open",
+    "assignedTo": null,
+    "createdAt": "2026-09-16T08:49:58.546Z"
+  },
+  {
+    "id": "seed-31",
+    "customerName": "Kenji Sato",
+    "subject": "Wifi dropping intermittently",
+    "description": "Wifi dropping intermittently — reported via helpdesk portal.",
+    "priority": "urgent",
+    "status": "open",
+    "assignedTo": "Alex",
+    "createdAt": "2026-09-16T08:19:58.546Z"
+  },
+  {
+    "id": "seed-32",
+    "customerName": "Fatima Noor",
+    "subject": "Password reset request",
+    "description": "Password reset request — reported via helpdesk portal.",
+    "priority": "normal",
+    "status": "open",
+    "assignedTo": "Priya",
+    "createdAt": "2026-09-16T07:25:58.546Z"
+  },
+  {
+    "id": "seed-33",
+    "customerName": "Carlos Rivas",
+    "subject": "Payment terminal frozen, customers waiting",
+    "description": "Payment terminal frozen, customers waiting — reported via helpdesk portal.",
+    "priority": "urgent",
+    "status": "closed",
+    "assignedTo": null,
+    "createdAt": "2026-09-16T06:49:58.546Z"
+  },
+  {
+    "id": "seed-34",
+    "customerName": "Priya Nair",
+    "subject": "Slack notifications not working",
+    "description": "Slack notifications not working — reported via helpdesk portal.",
+    "priority": "normal",
+    "status": "open",
+    "assignedTo": "Priya",
+    "createdAt": "2026-09-16T05:19:58.546Z"
+  },
+  {
+    "id": "seed-35",
+    "customerName": "James O'Neill",
+    "subject": "Screen flickering on external display",
+    "description": "Screen flickering on external display — reported via helpdesk portal.",
+    "priority": "normal",
+    "status": "open",
+    "assignedTo": "Alex",
+    "createdAt": "2026-09-16T01:19:58.546Z"
+  },
+  {
+    "id": "seed-36",
+    "customerName": "Ana Petrova",
+    "subject": "Laptop won't boot before client demo",
+    "description": "Laptop won't boot before client demo — reported via helpdesk portal.",
+    "priority": "urgent",
+    "status": "open",
+    "assignedTo": null,
+    "createdAt": "2026-09-15T13:19:58.546Z"
+  },
+  {
+    "id": "seed-37",
+    "customerName": "Tom Becker",
+    "subject": "Production VPN down for whole team",
+    "description": "Production VPN down for whole team — reported via helpdesk portal.",
+    "priority": "urgent",
+    "status": "open",
+    "assignedTo": "Alex",
+    "createdAt": "2026-09-15T07:19:58.546Z"
+  },
+  {
+    "id": "seed-38",
+    "customerName": "Nia Williams",
+    "subject": "Can't log into email",
+    "description": "Can't log into email — reported via helpdesk portal.",
+    "priority": "urgent",
+    "status": "open",
+    "assignedTo": "Priya",
+    "createdAt": "2026-09-15T03:19:58.546Z"
+  },
+  {
+    "id": "seed-39",
+    "customerName": "Yusuf Demir",
+    "subject": "Requesting a second monitor",
+    "description": "Requesting a second monitor — reported via helpdesk portal.",
+    "priority": "normal",
+    "status": "open",
+    "assignedTo": null,
+    "createdAt": "2026-09-14T09:19:58.546Z"
+  },
+  {
+    "id": "seed-40",
+    "customerName": "Grace Park",
+    "subject": "Software license renewal question",
+    "description": "Software license renewal question — reported via helpdesk portal.",
+    "priority": "normal",
+    "status": "open",
+    "assignedTo": "Priya",
+    "createdAt": "2026-09-16T08:49:58.546Z"
+  },
+  {
+    "id": "seed-41",
+    "customerName": "Ivan Petrov",
+    "subject": "Printer on 3rd floor jammed",
+    "description": "Printer on 3rd floor jammed — reported via helpdesk portal.",
+    "priority": "normal",
+    "status": "open",
+    "assignedTo": "Alex",
+    "createdAt": "2026-09-16T08:19:58.546Z"
+  }
+]

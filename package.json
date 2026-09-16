@@ -1,0 +1,18 @@
+{
+  "name": "support-queue",
+  "version": "1.0.0",
+  "description": "A prioritized support ticket queue for a small helpdesk team.",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node server/server.js",
+    "seed": "node server/seed.js",
+    "test": "node --test tests/*.test.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

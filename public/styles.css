@@ -1,0 +1,264 @@
+:root {
+  --ink: #1c2027;
+  --ink-soft: #565f6e;
+  --paper: #f6f5f2;
+  --panel: #ffffff;
+  --line: #e2dfd8;
+  --urgent: #b5432a;
+  --urgent-bg: #fbe9e4;
+  --normal: #2f6f5e;
+  --normal-bg: #e7f2ee;
+  --overdue: #a6172f;
+  --overdue-bg: #ffe0e4;
+  --accent: #2f6f5e;
+  font-family: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 28px 20px 60px;
+}
+
+.topbar {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 14px;
+}
+
+.topbar h1 {
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  margin: 0;
+  font-weight: 700;
+}
+
+.btn {
+  font-family: inherit;
+  font-size: 13.5px;
+  padding: 8px 14px;
+  border-radius: 3px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.btn:hover { border-color: var(--ink-soft); }
+
+.btn-primary {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+
+.btn-primary:hover { background: #000; }
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.controls input[type="text"],
+.controls select {
+  font-family: inherit;
+  font-size: 13.5px;
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: var(--panel);
+  color: var(--ink);
+}
+
+#searchInput { min-width: 220px; }
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13.5px;
+  color: var(--ink-soft);
+}
+
+.spacer { flex: 1; }
+
+.muted { color: var(--ink-soft); font-size: 13px; }
+
+.ticket-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 200px;
+}
+
+.ticket-row {
+  display: grid;
+  grid-template-columns: 8px 1fr auto auto auto;
+  align-items: center;
+  gap: 14px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 12px 14px;
+}
+
+.ticket-row.overdue { border-color: var(--overdue); }
+
+.stripe { width: 8px; height: 32px; border-radius: 2px; background: var(--line); }
+.stripe.urgent { background: var(--urgent); }
+.stripe.normal { background: var(--normal); }
+.stripe.overdue { background: var(--overdue); }
+
+.ticket-main .subject {
+  font-weight: 600;
+  font-size: 14.5px;
+  margin-bottom: 2px;
+}
+
+.ticket-main .meta {
+  font-size: 12.5px;
+  color: var(--ink-soft);
+}
+
+.badge {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 3px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.badge.urgent { background: var(--urgent-bg); color: var(--urgent); }
+.badge.normal { background: var(--normal-bg); color: var(--normal); }
+.badge.overdue { background: var(--overdue-bg); color: var(--overdue); }
+
+.assignee {
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.due {
+  font-size: 12.5px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  text-align: right;
+  min-width: 92px;
+}
+
+.due.overdue { color: var(--overdue); font-weight: 600; }
+
+.row-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.row-actions select,
+.row-actions button {
+  font-size: 12px;
+  padding: 4px 6px;
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--ink-soft);
+  padding: 60px 20px;
+  font-size: 14px;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 20px;
+  font-size: 13.5px;
+  color: var(--ink-soft);
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(28, 32, 39, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-backdrop.hidden { display: none; }
+
+.modal {
+  background: var(--panel);
+  border-radius: 6px;
+  padding: 22px 24px;
+  width: 100%;
+  max-width: 420px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal h2 { margin-top: 0; font-size: 17px; }
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.modal input,
+.modal select,
+.modal textarea {
+  font-family: inherit;
+  font-size: 14px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  color: var(--ink);
+  resize: vertical;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+@media (max-width: 640px) {
+  .ticket-row {
+    grid-template-columns: 6px 1fr;
+    grid-template-areas:
+      "stripe main"
+      "stripe badges"
+      "stripe actions";
+    row-gap: 8px;
+  }
+  .due, .assignee { text-align: left; }
+}

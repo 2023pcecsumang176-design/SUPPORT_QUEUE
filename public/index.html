@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Support Queue</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <h1>Support Queue</h1>
+      <button id="newTicketBtn" class="btn btn-primary">+ New Ticket</button>
+    </header>
+
+    <section class="controls">
+      <input id="searchInput" type="text" placeholder="Search by customer name…" />
+
+      <select id="assigneeFilter">
+        <option value="">All assignees</option>
+        <option value="unassigned">Unassigned</option>
+      </select>
+
+      <label class="checkbox">
+        <input type="checkbox" id="overdueFilter" />
+        Overdue only
+      </label>
+
+      <select id="statusFilter">
+        <option value="open" selected>Open queue</option>
+        <option value="closed">Closed</option>
+        <option value="all">All</option>
+      </select>
+
+      <div class="spacer"></div>
+      <span id="resultCount" class="muted"></span>
+    </section>
+
+    <section class="ticket-list" id="ticketList">
+      <!-- rows injected here -->
+    </section>
+
+    <footer class="pagination">
+      <button id="prevPage" class="btn">‹ Prev</button>
+      <span id="pageInfo"></span>
+      <button id="nextPage" class="btn">Next ›</button>
+    </footer>
+  </div>
+
+  <!-- New / Edit ticket modal -->
+  <div id="modalBackdrop" class="modal-backdrop hidden">
+    <div class="modal">
+      <h2 id="modalTitle">New Ticket</h2>
+      <form id="ticketForm">
+        <label>Customer name
+          <input type="text" id="f_customerName" required />
+        </label>
+        <label>Subject
+          <input type="text" id="f_subject" required />
+        </label>
+        <label>Description
+          <textarea id="f_description" rows="3"></textarea>
+        </label>
+        <label>Priority
+          <select id="f_priority">
+            <option value="normal">Normal (24h)</option>
+            <option value="urgent">Urgent (2h)</option>
+          </select>
+        </label>
+        <label>Assign to
+          <select id="f_assignedTo">
+            <option value="">Unassigned</option>
+          </select>
+        </label>
+        <div class="modal-actions">
+          <button type="button" id="cancelModal" class="btn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
