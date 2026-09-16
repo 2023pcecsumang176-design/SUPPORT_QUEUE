@@ -26,6 +26,8 @@ function getById(id) {
   return load().find((t) => t.id === id) || null;
 }
 
+const VALID_PRIORITIES = ['urgent', 'high', 'normal'];
+
 function create(input) {
   const tickets = load();
   const ticket = {
@@ -33,7 +35,7 @@ function create(input) {
     customerName: input.customerName,
     subject: input.subject,
     description: input.description || '',
-    priority: input.priority === 'urgent' ? 'urgent' : 'normal',
+    priority: VALID_PRIORITIES.includes(input.priority) ? input.priority : 'normal',
     status: 'open',
     assignedTo: input.assignedTo || null,
     createdAt: input.createdAt || new Date().toISOString(),
@@ -67,4 +69,4 @@ function replaceAll(tickets) {
   save(tickets);
 }
 
-module.exports = { all, getById, create, update, remove, replaceAll, DATA_FILE };
+module.exports = { all, getById, create, update, remove, replaceAll, DATA_FILE, VALID_PRIORITIES };

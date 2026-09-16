@@ -7,7 +7,7 @@
     "priority": "urgent",
     "status": "closed",
     "assignedTo": null,
-    "createdAt": "2026-09-16T08:49:58.546Z"
+    "createdAt": "2026-09-16T09:29:00.677Z"
   },
   {
     "id": "seed-1",
@@ -17,7 +17,7 @@
     "priority": "urgent",
     "status": "open",
     "assignedTo": "Alex",
-    "createdAt": "2026-09-16T08:19:58.546Z"
+    "createdAt": "2026-09-16T08:59:00.678Z"
   },
   {
     "id": "seed-2",
@@ -27,7 +27,7 @@
     "priority": "urgent",
     "status": "open",
     "assignedTo": "Priya",
-    "createdAt": "2026-09-16T07:25:58.546Z"
+    "createdAt": "2026-09-16T08:05:00.678Z"
   },
   {
     "id": "seed-3",
@@ -37,7 +37,7 @@
     "priority": "normal",
     "status": "open",
     "assignedTo": null,
-    "createdAt": "2026-09-16T06:49:58.546Z"
+    "createdAt": "2026-09-16T07:29:00.678Z"
   },
   {
     "id": "seed-4",
@@ -47,7 +47,7 @@
     "priority": "normal",
     "status": "open",
     "assignedTo": "Priya",
-    "createdAt": "2026-09-16T05:19:58.546Z"
+    "createdAt": "2026-09-16T05:59:00.678Z"
   },
   {
     "id": "seed-5",
@@ -57,7 +57,7 @@
     "priority": "normal",
     "status": "open",
     "assignedTo": "Alex",
-    "createdAt": "2026-09-16T01:19:58.546Z"
+    "createdAt": "2026-09-16T01:59:00.678Z"
   },
   {
     "id": "seed-6",
@@ -67,7 +67,7 @@
     "priority": "normal",
     "status": "open",
     "assignedTo": null,
-    "createdAt": "2026-09-15T13:19:58.546Z"
+    "createdAt": "2026-09-15T13:59:00.678Z"
   },
   {
     "id": "seed-7",
@@ -77,17 +77,17 @@
     "priority": "urgent",
     "status": "open",
     "assignedTo": "Alex",
-    "createdAt": "2026-09-15T07:19:58.546Z"
+    "createdAt": "2026-09-15T07:59:00.678Z"
   },
   {
     "id": "seed-8",
     "customerName": "Carlos Rivas",
     "subject": "Password reset request",
     "description": "Password reset request — reported via helpdesk portal.",
-    "priority": "normal",
+    "priority": "urgent",
     "status": "open",
     "assignedTo": "Priya",
-    "createdAt": "2026-09-15T03:19:58.546Z"
+    "createdAt": "2026-09-15T03:59:00.678Z"
   },
   {
     "id": "seed-9",
@@ -97,7 +97,7 @@
     "priority": "urgent",
     "status": "open",
     "assignedTo": null,
-    "createdAt": "2026-09-14T09:19:58.546Z"
+    "createdAt": "2026-09-14T09:59:00.678Z"
   },
   {
     "id": "seed-10",
@@ -107,7 +107,7 @@
     "priority": "normal",
     "status": "open",
     "assignedTo": "Priya",
-    "createdAt": "2026-09-16T08:49:58.546Z"
+    "createdAt": "2026-09-16T09:29:00.678Z"
   },
   {
     "id": "seed-11",
@@ -117,7 +117,7 @@
     "priority": "normal",
     "status": "closed",
     "assignedTo": "Alex",
-    "createdAt": "2026-09-16T08:19:58.546Z"
+    "createdAt": "2026-09-16T08:59:00.678Z"
   },
   {
     "id": "seed-12",
@@ -127,7 +127,7 @@
     "priority": "urgent",
     "status": "open",
     "assignedTo": null,
-    "createdAt": "2026-09-16T07:25:58.546Z"
+    "createdAt": "2026-09-16T08:05:00.678Z"
   },
   {
     "id": "seed-13",
@@ -137,7 +137,7 @@
     "priority": "urgent",
     "status": "open",
     "assignedTo": "Alex",
-    "createdAt": "2026-09-16T06:49:58.546Z"
+    "createdAt": "2026-09-16T07:29:00.678Z"
   },
   {
     "id": "seed-14",
@@ -147,7 +147,7 @@
     "priority": "urgent",
     "status": "open",
     "assignedTo": "Priya",
-    "createdAt": "2026-09-16T05:19:58.546Z"
+    "createdAt": "2026-09-16T05:59:00.678Z"
   },
   {
     "id": "seed-15",
@@ -157,7 +157,7 @@
     "priority": "normal",
     "status": "open",
     "assignedTo": null,
-    "createdAt": "2026-09-16T01:19:58.546Z"
+    "createdAt": "2026-09-16T01:59:00.678Z"
   },
   {
     "id": "seed-16",
@@ -167,27 +167,27 @@
     "priority": "normal",
     "status": "open",
     "assignedTo": "Priya",
-    "createdAt": "2026-09-15T13:19:58.546Z"
+    "createdAt": "2026-09-15T13:59:00.678Z"
   },
   {
     "id": "seed-17",
     "customerName": "Mei Lin",
     "subject": "Printer on 3rd floor jammed",
     "description": "Printer on 3rd floor jammed — reported via helpdesk portal.",
-    "priority": "normal",
+    "priority": "urgent",
     "status": "open",
     "assignedTo": "Alex",
-    "createdAt": "2026-09-15T07:19:58.546Z"
+    "createdAt": "2026-09-15T07:59:00.678Z"
   },
   {
     "id": "seed-18",
     "customerName": "Oscar Dubois",
     "subject": "New hire laptop setup",
     "description": "New hire laptop setup — reported via helpdesk portal.",
-    "priority": "normal",
+    "priority": "urgent",
     "status": "open",
     "assignedTo": null,
-    "createdAt": "2026-09-15T03:19:58.546Z"
+    "createdAt": "2026-09-15T03:59:00.678Z"
   },
   {
     "id": "seed-19",
@@ -196,8 +196,8 @@
     "description": "Wifi dropping intermittently — reported via helpdesk portal.",
     "priority": "urgent",
     "status": "open",
-    "assignedTo": "Alex",
-    "createdAt": "2026-09-14T09:19:58.546Z"
+    "assignedTo": "Priya",
+    "createdAt": "2026-09-14T09:59:00.678Z"
   },
   {
     "id": "seed-20",
@@ -207,7 +207,7 @@
     "priority": "normal",
     "status": "open",
     "assignedTo": "Priya",
-    "createdAt": "2026-09-16T08:49:58.546Z"
+    "createdAt": "2026-09-16T09:29:00.678Z"
   },
   {
     "id": "seed-21",
@@ -217,7 +217,7 @@
     "priority": "urgent",
     "status": "open",
     "assignedTo": null,
-    "createdAt": "2026-09-16T08:19:58.546Z"
+    "createdAt": "2026-09-16T08:59:00.678Z"
   },
   {
     "id": "seed-22",
@@ -227,7 +227,7 @@
     "priority": "normal",
     "status": "closed",
     "assignedTo": "Priya",
-    "createdAt": "2026-09-16T07:25:58.546Z"
+    "createdAt": "2026-09-16T08:05:00.678Z"
   },
   {
     "id": "seed-23",
@@ -237,7 +237,7 @@
     "priority": "normal",
     "status": "open",
     "assignedTo": "Alex",
-    "createdAt": "2026-09-16T06:49:58.546Z"
+    "createdAt": "2026-09-16T07:29:00.678Z"
   },
   {
     "id": "seed-24",
@@ -247,7 +247,7 @@
     "priority": "urgent",
     "status": "open",
     "assignedTo": null,
-    "createdAt": "2026-09-16T05:19:58.546Z"
+    "createdAt": "2026-09-16T05:59:00.678Z"
   },
   {
     "id": "seed-25",
@@ -257,7 +257,7 @@
     "priority": "urgent",
     "status": "open",
     "assignedTo": "Alex",
-    "createdAt": "2026-09-16T01:19:58.546Z"
+    "createdAt": "2026-09-16T01:59:00.678Z"
   },
   {
     "id": "seed-26",
@@ -267,37 +267,37 @@
     "priority": "urgent",
     "status": "open",
     "assignedTo": "Priya",
-    "createdAt": "2026-09-15T13:19:58.546Z"
+    "createdAt": "2026-09-15T13:59:00.678Z"
   },
   {
     "id": "seed-27",
     "customerName": "Liu Wei",
     "subject": "Requesting a second monitor",
     "description": "Requesting a second monitor — reported via helpdesk portal.",
-    "priority": "normal",
+    "priority": "urgent",
     "status": "open",
     "assignedTo": null,
-    "createdAt": "2026-09-15T07:19:58.546Z"
+    "createdAt": "2026-09-15T07:59:00.678Z"
   },
   {
     "id": "seed-28",
     "customerName": "Amara Okafor",
     "subject": "Software license renewal question",
     "description": "Software license renewal question — reported via helpdesk portal.",
-    "priority": "normal",
+    "priority": "urgent",
     "status": "open",
     "assignedTo": "Priya",
-    "createdAt": "2026-09-15T03:19:58.546Z"
+    "createdAt": "2026-09-15T03:59:00.678Z"
   },
   {
     "id": "seed-29",
     "customerName": "Diego Alvarez",
     "subject": "Printer on 3rd floor jammed",
     "description": "Printer on 3rd floor jammed — reported via helpdesk portal.",
-    "priority": "normal",
+    "priority": "urgent",
     "status": "open",
     "assignedTo": "Alex",
-    "createdAt": "2026-09-14T09:19:58.546Z"
+    "createdAt": "2026-09-14T09:59:00.678Z"
   },
   {
     "id": "seed-30",
@@ -307,7 +307,7 @@
     "priority": "normal",
     "status": "open",
     "assignedTo": null,
-    "createdAt": "2026-09-16T08:49:58.546Z"
+    "createdAt": "2026-09-16T09:29:00.678Z"
   },
   {
     "id": "seed-31",
@@ -317,7 +317,7 @@
     "priority": "urgent",
     "status": "open",
     "assignedTo": "Alex",
-    "createdAt": "2026-09-16T08:19:58.546Z"
+    "createdAt": "2026-09-16T08:59:00.678Z"
   },
   {
     "id": "seed-32",
@@ -327,7 +327,7 @@
     "priority": "normal",
     "status": "open",
     "assignedTo": "Priya",
-    "createdAt": "2026-09-16T07:25:58.546Z"
+    "createdAt": "2026-09-16T08:05:00.678Z"
   },
   {
     "id": "seed-33",
@@ -337,7 +337,7 @@
     "priority": "urgent",
     "status": "closed",
     "assignedTo": null,
-    "createdAt": "2026-09-16T06:49:58.546Z"
+    "createdAt": "2026-09-16T07:29:00.678Z"
   },
   {
     "id": "seed-34",
@@ -347,7 +347,7 @@
     "priority": "normal",
     "status": "open",
     "assignedTo": "Priya",
-    "createdAt": "2026-09-16T05:19:58.546Z"
+    "createdAt": "2026-09-16T05:59:00.678Z"
   },
   {
     "id": "seed-35",
@@ -357,7 +357,7 @@
     "priority": "normal",
     "status": "open",
     "assignedTo": "Alex",
-    "createdAt": "2026-09-16T01:19:58.546Z"
+    "createdAt": "2026-09-16T01:59:00.678Z"
   },
   {
     "id": "seed-36",
@@ -367,7 +367,7 @@
     "priority": "urgent",
     "status": "open",
     "assignedTo": null,
-    "createdAt": "2026-09-15T13:19:58.546Z"
+    "createdAt": "2026-09-15T13:59:00.678Z"
   },
   {
     "id": "seed-37",
@@ -377,7 +377,7 @@
     "priority": "urgent",
     "status": "open",
     "assignedTo": "Alex",
-    "createdAt": "2026-09-15T07:19:58.546Z"
+    "createdAt": "2026-09-15T07:59:00.678Z"
   },
   {
     "id": "seed-38",
@@ -387,17 +387,17 @@
     "priority": "urgent",
     "status": "open",
     "assignedTo": "Priya",
-    "createdAt": "2026-09-15T03:19:58.546Z"
+    "createdAt": "2026-09-15T03:59:00.678Z"
   },
   {
     "id": "seed-39",
     "customerName": "Yusuf Demir",
     "subject": "Requesting a second monitor",
     "description": "Requesting a second monitor — reported via helpdesk portal.",
-    "priority": "normal",
+    "priority": "urgent",
     "status": "open",
     "assignedTo": null,
-    "createdAt": "2026-09-14T09:19:58.546Z"
+    "createdAt": "2026-09-14T09:59:00.678Z"
   },
   {
     "id": "seed-40",
@@ -407,7 +407,7 @@
     "priority": "normal",
     "status": "open",
     "assignedTo": "Priya",
-    "createdAt": "2026-09-16T08:49:58.546Z"
+    "createdAt": "2026-09-16T09:29:00.678Z"
   },
   {
     "id": "seed-41",
@@ -417,6 +417,16 @@
     "priority": "normal",
     "status": "open",
     "assignedTo": "Alex",
-    "createdAt": "2026-09-16T08:19:58.546Z"
+    "createdAt": "2026-09-16T08:59:00.678Z"
+  },
+  {
+    "id": "936c7ee1-5175-4c17-8ad9-441b8e0690ef",
+    "customerName": "umang",
+    "subject": "cdvffdbh",
+    "description": "",
+    "priority": "urgent",
+    "status": "open",
+    "assignedTo": "Alex",
+    "createdAt": "2026-09-16T09:59:56.602Z"
   }
 ]

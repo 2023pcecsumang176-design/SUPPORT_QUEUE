@@ -175,6 +175,15 @@ body {
 .row-actions button {
   font-size: 12px;
   padding: 4px 6px;
+  font-family: inherit;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: var(--panel);
+  color: var(--ink);
+}
+
+.row-actions select {
+  max-width: 110px;
 }
 
 .empty-state {

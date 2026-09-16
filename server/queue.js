@@ -14,16 +14,22 @@
  *   2. Within each tier, order by urgency:
  *        - Overdue tier: most overdue first (earliest due date first) —
  *          the ticket that's been broken longest is the most on fire.
- *        - Not-yet-due tier: urgent priority first, then soonest due date
- *          first (i.e. effectively time-to-breach ascending).
+ *        - Not-yet-due tier: highest priority first (urgent > high >
+ *          normal), then soonest due date first (i.e. effectively
+ *          time-to-breach ascending).
  *
  * Closed/resolved tickets never show up in the "queue" ordering (there's
  * nothing pressing about a ticket that's done) but are kept in storage
  * and are reachable via search/filters.
+ *
+ * Priority now has three levels because tickets can be escalated
+ * (see escalate.js): normal -> high -> urgent. Each level has its own
+ * agreed response time (SLA).
  */
 
 const SLA_HOURS = {
   urgent: 2,
+  high: 8,
   normal: 24,
 };
 
@@ -36,7 +42,7 @@ function isOverdue(ticket, now = Date.now()) {
   return now > dueAt(ticket);
 }
 
-const PRIORITY_WEIGHT = { urgent: 0, normal: 1 };
+const PRIORITY_WEIGHT = { urgent: 0, high: 1, normal: 2 };
 
 /**
  * Comparator implementing the two-tier rule above.

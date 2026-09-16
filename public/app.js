@@ -34,10 +34,17 @@ function debounce(fn, ms) {
   return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
 }
 
+let knownAgents = [];
+
 async function loadAgents() {
-  const agents = await fetch('/api/agents').then((r) => r.json());
+  try {
+    knownAgents = await fetch('/api/agents').then((r) => r.json());
+  } catch (err) {
+    console.error('Failed to load agents:', err);
+    knownAgents = [];
+  }
   for (const select of [els.assignee, els.fAssignedTo]) {
-    agents.forEach((a) => {
+    knownAgents.forEach((a) => {
       const opt = document.createElement('option');
       opt.value = a;
       opt.textContent = a;
@@ -68,7 +75,7 @@ function ticketRow(ticket) {
   main.className = 'ticket-main';
   main.innerHTML = `
     <div class="subject">${escapeHtml(ticket.subject)}</div>
-    <div class="meta">${escapeHtml(ticket.customerName)} · opened ${timeAgo(ticket.createdAt)}</div>
+    <div class="meta">${escapeHtml(ticket.customerName)} - opened ${timeAgo(ticket.createdAt)}</div>
   `;
   row.appendChild(main);
 
@@ -89,7 +96,7 @@ function ticketRow(ticket) {
 
   const assignee = document.createElement('div');
   assignee.className = 'assignee';
-  assignee.textContent = ticket.assignedTo ? `→ ${ticket.assignedTo}` : 'unassigned';
+  assignee.textContent = ticket.assignedTo ? `-> ${ticket.assignedTo}` : 'unassigned';
   row.appendChild(assignee);
 
   const due = document.createElement('div');
@@ -105,6 +112,30 @@ function ticketRow(ticket) {
 function rowActions(ticket) {
   const wrap = document.createElement('div');
   wrap.className = 'row-actions';
+
+  const assignSelect = document.createElement('select');
+  assignSelect.title = 'Reassign this ticket';
+  const unassignedOpt = document.createElement('option');
+  unassignedOpt.value = '';
+  unassignedOpt.textContent = 'Unassigned';
+  assignSelect.appendChild(unassignedOpt);
+  knownAgents.forEach((a) => {
+    const opt = document.createElement('option');
+    opt.value = a;
+    opt.textContent = a;
+    if (a === ticket.assignedTo) opt.selected = true;
+    assignSelect.appendChild(opt);
+  });
+  if (!ticket.assignedTo) unassignedOpt.selected = true;
+  assignSelect.addEventListener('change', async () => {
+    await fetch(`/api/tickets/${ticket.id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ assignedTo: assignSelect.value || null }),
+    });
+    refresh();
+  });
+  wrap.appendChild(assignSelect);
 
   const closeBtn = document.createElement('button');
   closeBtn.className = 'btn';

@@ -4,6 +4,7 @@ const express = require('express');
 const path = require('path');
 const store = require('./store');
 const { queryTickets, SLA_HOURS } = require('./queue');
+const { runEscalation } = require('./escalate');
 
 const app = express();
 app.use(express.json());
@@ -43,8 +44,8 @@ app.post('/api/tickets', (req, res) => {
   if (!customerName || !subject) {
     return res.status(400).json({ error: 'customerName and subject are required' });
   }
-  if (priority && !['urgent', 'normal'].includes(priority)) {
-    return res.status(400).json({ error: "priority must be 'urgent' or 'normal'" });
+  if (priority && !store.VALID_PRIORITIES.includes(priority)) {
+    return res.status(400).json({ error: "priority must be 'urgent', 'high' or 'normal'" });
   }
   const ticket = store.create({ customerName, subject, description, priority, assignedTo });
   res.status(201).json(ticket);
@@ -66,9 +67,29 @@ app.delete('/api/tickets/:id', (req, res) => {
 
 app.get('/api/sla', (req, res) => res.json(SLA_HOURS));
 
+// POST /api/escalate - manually trigger the SLA-breach escalation sweep
+// (the automated check also runs this on its own — see the interval below)
+app.post('/api/escalate', (req, res) => {
+  const escalated = runEscalation();
+  res.json({ escalated, count: escalated.length });
+});
+
 const PORT = process.env.PORT || 3000;
+// How often the automated escalation sweep runs while the server is up.
+// Kept short for demo/testing; bump this to something like 15-30 minutes
+// in a real deployment.
+const ESCALATION_INTERVAL_MS = 5 * 60 * 1000;
+
 if (require.main === module) {
   app.listen(PORT, () => console.log(`Support queue running on http://localhost:${PORT}`));
+
+  setInterval(() => {
+    const escalated = runEscalation();
+    if (escalated.length > 0) {
+      console.log(`[escalation] bumped ${escalated.length} ticket(s):`);
+      escalated.forEach((e) => console.log(`  ${e.customerName} (${e.id}): ${e.from} -> ${e.to}`));
+    }
+  }, ESCALATION_INTERVAL_MS);
 }
 
 module.exports = app;
