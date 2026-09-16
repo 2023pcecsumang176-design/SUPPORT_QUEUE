@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Support Queue
 
 A prioritized ticket queue for a small helpdesk team. Built for the "helpdesk is drowning" brief:
@@ -111,3 +112,6 @@ data/
 - No editing of an existing ticket's subject/description from the UI (the API supports it via
   `PATCH`, the UI only exposes assign/close for now) — left out to keep the surface area focused
   on the ordering/filtering/search/pagination behaviors the brief calls out.
+=======
+# AURIGA_ASSESS
+>>>>>>> fa46adbf446458c9d26ab2a51a8471995454411c
